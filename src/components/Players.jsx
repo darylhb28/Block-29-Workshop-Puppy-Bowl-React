@@ -40,7 +40,6 @@ function handleClick(player){
                     />
             </label>
             <br />
-            <br />
             <div className = "container">
                 {
                     filteredPlayers.map((player)=>
