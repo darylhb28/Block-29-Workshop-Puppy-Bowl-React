@@ -11,15 +11,15 @@ export default function PlayerForm({}){
     const [refresh, setRefresh] = useState(false)
 
 
- function handleSubmit(event){
+function handleSubmit(event){
     event.preventDefault()
 
-function savePlayerIdToLocalStorage (id) {
-    const stored = localStorage.getItem("myPlayerIds");
-    const ids = stored ? JSON.parse(stored) : [];
-    ids.push(id);
-    localStorage.setItem("myPlayerIds", JSON.stringify(ids));
-    };
+    function savePlayerIdToLocalStorage (id) {
+        const stored = localStorage.getItem("myPlayerIds");
+        const ids = stored ? JSON.parse(stored) : [];
+        ids.push(id);
+        localStorage.setItem("myPlayerIds", JSON.stringify(ids));
+        };
 
     async function invitePlayer (){
         console.log(puppyName)
@@ -36,7 +36,7 @@ function savePlayerIdToLocalStorage (id) {
             setRefresh(prev => !prev)
     }
     invitePlayer()
-    }
+}
 
     useEffect(()=>{
         async function fetchPlayers(){
