@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
-import { getSinglePlayer } from "../API calls"
+import { getSinglePlayer, removePlayer } from "../API calls"
 import { useParams, useNavigate } from "react-router-dom"
 
 export default function SinglePlayer({}){
     const [player, setPlayer] = useState([])
     const {id} = useParams()
     const navigate = useNavigate()
+    const [successMessage, setSuccessMessage] = useState("")
+
+
 
     useEffect(()=>{
         async function fetchPlayer(){
@@ -15,6 +18,7 @@ export default function SinglePlayer({}){
         }
         fetchPlayer()
     },[])
+
 
     return (
         <>
@@ -26,7 +30,10 @@ export default function SinglePlayer({}){
                     <p>Breed: {player.breed}</p>
                     <p>Status: {player.status}</p>
                     <p>Team: {player.team?.name}</p>
+                    <p>Player ID {player.id}</p>
                     <button onClick={() => navigate("/")}>Back to All Players</button>
+                    <br />
+                    <br />
                 </div>
             )
         }

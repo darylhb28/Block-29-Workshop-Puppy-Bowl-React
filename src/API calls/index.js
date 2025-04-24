@@ -55,8 +55,16 @@ export async function addPlayer({
 
 }
 
-export async function removePlayer(){
+export async function removePlayer(id){
+    try {
+        const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2501-FTB-ET-WEB-PT-puppies/players/${id}`, {
+            method: "DELETE"
+         })
+         const res = await response.json()
+         return res
 
-    return 
+    }catch (error) {
+        console.log(error)
+    } 
 
 }
